@@ -75,6 +75,7 @@ TARGET=${SOURCE//0000/$(printf "%04d" "${ID}")}
 
 sed -i '' "s|- RFC Pull Request:.*|- RFC Pull Request: [rfcs#${PR}](https://github.com/buildpacks/rfcs/pull/${PR})|" "${SOURCE}"
 sed -i '' "s|- CNB Issue:.*|- CNB Issue: $issues|" "${SOURCE}"
+sed -i '' "s|- State:.*|- State: **Approved** | On Hold|" "${SOURCE}"
 git mv "${SOURCE}" "${TARGET}"
 git add "${TARGET}"
 git commit --signoff --message "RFC ${ID}
